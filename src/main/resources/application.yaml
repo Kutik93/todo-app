@@ -1,0 +1,14 @@
+spring:
+  h2.console:
+    enabled: true
+    path: '/console'
+
+  datasource:
+    url: 'jdbc:h2:file:C:/Dawid/!! Programowanie/todo-app/todo-app'
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+task.allowMultipletTaskFromTemplate: false
