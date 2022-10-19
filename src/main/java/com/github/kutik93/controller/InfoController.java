@@ -1,7 +1,6 @@
 package com.github.kutik93.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import com.github.kutik93.TaskConfigurationProperties;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,11 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class InfoController {
 
-    @Autowired
-    private DataSourceProperties dataSource;
-    @Value(("${task.allowMultipletTaskFromTemplate}"))
-    private String myProp;
 
+    private DataSourceProperties dataSource;
+    private TaskConfigurationProperties myProp;
+
+    public InfoController(DataSourceProperties dataSource, TaskConfigurationProperties myProp) {
+        this.dataSource = dataSource;
+        this.myProp = myProp;
+    }
 
     @GetMapping("/info/url")
     String url() {
@@ -21,7 +23,7 @@ public class InfoController {
     }
 
     @GetMapping("/info/prop")
-    String myProp() {
-        return myProp;
+    boolean myProp() {
+        return myProp.getTemplate().isAllowMultipletTasks();
     }
 }
