@@ -1,15 +1,16 @@
 spring:
+
   h2.console:
     enabled: true
     path: '/console'
 
   datasource:
     url: 'jdbc:h2:file:C:/Dawid/!! Programowanie/todo-app/todo-db'
-  flyway:
-    baselineOnMigrate: true
 
   jpa:
     open-in-view: false
     hibernate:
       ddl-auto: validate
 
+  flyway:
+    baselineOnMigrate: true
