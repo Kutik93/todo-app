@@ -8,10 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class TaskConfigurationProperties {
     private TaskTemplate taskTemplate;
 
-    public TaskConfigurationProperties(TaskTemplate taskTemplate) {
-        this.taskTemplate = taskTemplate;
-    }
-
     public TaskTemplate getTemplate() {
         return taskTemplate;
     }

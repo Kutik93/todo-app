@@ -2,8 +2,6 @@ spring:
   h2.console:
     enabled: true
     path: '/console'
-  main:
-    banner-mode: false
 
   datasource:
     url: 'jdbc:h2:file:C:/Dawid/!! Programowanie/todo-app/todo-app'
@@ -12,8 +10,4 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: update
-
-task:
-  template:
-    allowMultipletTasks: false
 
