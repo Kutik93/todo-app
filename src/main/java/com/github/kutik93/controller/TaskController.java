@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
@@ -63,5 +64,18 @@ class TaskController {
         repository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+
+
+    @Transactional
+    @PatchMapping(value = "/tasks/{id}")
+    public ResponseEntity<?> toggleTask(@PathVariable Long id){
+        if(!repository.existsById(id)){
+            return ResponseEntity.notFound().build();
+        }
+        repository.findById(id).ifPresent(task -> task.setDone(!task.isDone()));
+        return ResponseEntity.noContent().build();
+    }
+
 }
 
