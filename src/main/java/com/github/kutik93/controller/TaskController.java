@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -40,13 +41,13 @@ class TaskController {
         return repository.findById(id).map(task -> ResponseEntity.ok(task)).orElse(ResponseEntity.notFound().build());
     }
 
-    @RequestMapping(value = "/tasks/{id}", method = RequestMethod.PUT)
-    ResponseEntity<?> updateTask(@PathVariable long id, @RequestBody Task toUpdate) {
+    @Transactional
+    @PutMapping("/tasks/{id}")
+    public ResponseEntity<?> updateTask(@PathVariable Long id, @RequestBody @Valid Task toUpdate) {
         if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
-        toUpdate.setId(id);
-        repository.save(toUpdate);
+        repository.findById(id).ifPresent(task -> task.updateFrom(toUpdate));
         return ResponseEntity.noContent().build();
     }
 
@@ -66,11 +67,10 @@ class TaskController {
     }
 
 
-
     @Transactional
     @PatchMapping(value = "/tasks/{id}")
-    public ResponseEntity<?> toggleTask(@PathVariable Long id){
-        if(!repository.existsById(id)){
+    public ResponseEntity<?> toggleTask(@PathVariable Long id) {
+        if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
         repository.findById(id).ifPresent(task -> task.setDone(!task.isDone()));
