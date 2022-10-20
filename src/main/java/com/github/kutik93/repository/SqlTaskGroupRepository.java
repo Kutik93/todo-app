@@ -9,9 +9,9 @@ import java.util.List;
 
 interface SqlTaskGroupRepository extends TaskGroupRepository, JpaRepository<TaskGroup, Long> {
 
-//    @Override
-//    @Query("select distinct g from TaskGroup g join fetch g.tasks")
-//    List<TaskGroup> findAll();
-//
-//    boolean existsByGroupDoneIsFalseAndGroup_Id(Long groupId);
+    @Override
+    @Query(" from TaskGroup g join fetch g.tasks")
+    List<TaskGroup> findAll();
+
+
 }
