@@ -21,46 +21,35 @@ public class Task {
     @JoinColumn(name = "task_group_id")
     private TaskGroup group;
 
-
+    public Task() {
+    }
     public LocalDateTime getDeadline() {
         return deadline;
     }
-
     void setDeadline(LocalDateTime deadline) {
         this.deadline = deadline;
     }
-
     public Long getId() {
         return id;
     }
-
-    public Task() {
-    }
-
     void setId(final Long id) {
         this.id = id;
     }
-
     public String getDescription() {
         return description;
     }
-
     void setDescription(String description) {
         this.description = description;
     }
-
     public boolean isDone() {
         return done;
     }
-
     public void setDone(boolean done) {
         this.done = done;
     }
-
     TaskGroup getGroup() {
         return group;
     }
-
     public void updateFrom(final Task source) {
         description = source.description;
         done = source.done;

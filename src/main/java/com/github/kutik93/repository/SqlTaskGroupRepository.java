@@ -13,5 +13,7 @@ interface SqlTaskGroupRepository extends TaskGroupRepository, JpaRepository<Task
     @Query(" from TaskGroup g join fetch g.tasks")
     List<TaskGroup> findAll();
 
+    @Query("from TaskGroup g where g.project = ?1")
+    List<TaskGroup> findAllUnfinishedGroupsOfAGivenProject(Integer id);
 
 }
