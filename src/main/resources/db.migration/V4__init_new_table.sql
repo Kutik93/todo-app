@@ -1,6 +1,6 @@
 drop table if exists task_groups;
 create table task_groups(
-                            id          int primary key auto_increment,
+                            id          long primary key auto_increment,
                             description varchar(100) not null,
                             done        bit
 );

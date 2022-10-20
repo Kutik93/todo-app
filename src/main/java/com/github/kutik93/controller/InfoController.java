@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class InfoController {
-
-
     private DataSourceProperties dataSource;
     private TaskConfigurationProperties myProp;
 
-    public InfoController(DataSourceProperties dataSource, TaskConfigurationProperties myProp) {
+    public InfoController(final DataSourceProperties dataSource, final TaskConfigurationProperties myProp) {
         this.dataSource = dataSource;
         this.myProp = myProp;
     }

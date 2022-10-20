@@ -1,6 +1,5 @@
 package com.github.kutik93.controller;
 
-import com.github.kutik93.repository.SqlTaskRepository;
 import com.github.kutik93.model.Task;
 import com.github.kutik93.service.TaskRepository;
 import org.slf4j.Logger;
@@ -8,16 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 class TaskController {
-    private static final Logger logger = LoggerFactory.getLogger(SqlTaskRepository.class);
+    private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
     private final TaskRepository repository;
 
     TaskController(final TaskRepository repository) {
