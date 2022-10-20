@@ -12,5 +12,13 @@ spring:
     hibernate:
       ddl-auto: validate
 
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+
+
+
   flyway:
     baselineOnMigrate: true
+    validateOnMigrate: false
