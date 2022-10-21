@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "project_steps")
 public class ProjectStep {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @NotBlank(message = "Project step description must not be empty.")
     private String description;

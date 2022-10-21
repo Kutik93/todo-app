@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name = "task_groups")
 public class TaskGroup {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
     @NotBlank(message = "Task group's description must be not empty")

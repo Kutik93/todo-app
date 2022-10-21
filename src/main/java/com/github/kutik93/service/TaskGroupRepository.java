@@ -12,6 +12,8 @@ public interface TaskGroupRepository {
 
     Optional<TaskGroup> findById(Long id);
 
+    boolean existsByDoneIsFalseAndProject_Id(Long id);
+
     TaskGroup save(TaskGroup entity);
 
 }

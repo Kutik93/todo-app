@@ -8,11 +8,11 @@ import java.util.Set;
 @Table(name = "projects")
 public class Project {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotBlank(message = "Project description must not be empty.")
+    @NotBlank(message = "Project's description must not be empty.")
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    @OneToMany(mappedBy = "project")
     private Set<TaskGroup> groups;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<ProjectStep> steps;
@@ -32,15 +32,15 @@ public class Project {
         return description;
     }
 
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 
-    public Set<TaskGroup> getGroups() {
+    Set<TaskGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<TaskGroup> groups) {
+    void setGroups(Set<TaskGroup> groups) {
         this.groups = groups;
     }
 
@@ -48,7 +48,7 @@ public class Project {
         return steps;
     }
 
-    public void setSteps(Set<ProjectStep> steps) {
+    void setSteps(Set<ProjectStep> steps) {
         this.steps = steps;
     }
 }

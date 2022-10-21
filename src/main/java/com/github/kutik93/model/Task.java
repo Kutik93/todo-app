@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Table(name = "tasks")
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
     @NotBlank(message = "Task's description must be not empty")
@@ -17,7 +17,7 @@ public class Task {
     private LocalDateTime deadline;
     @Embedded
     private Audit audit = new Audit();
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "task_group_id")
     private TaskGroup group;
 
