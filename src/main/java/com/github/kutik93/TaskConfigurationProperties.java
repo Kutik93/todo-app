@@ -15,4 +15,6 @@ public class TaskConfigurationProperties {
     public void setTemplate(TaskTemplate taskTemplate) {
         this.taskTemplate = taskTemplate;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.github.kutik93.model.logic;
+package com.github.kutik93.logic;
 
 import com.github.kutik93.model.TaskGroup;
 import com.github.kutik93.model.projection.GroupReadModel;
@@ -38,5 +38,6 @@ public class TaskGroupService {
         TaskGroup result = repository.findById(groupId)
                 .orElseThrow(() -> new IllegalArgumentException("TaskGroup with given id not found"));
         result.setDone(!result.isDone());
+        repository.save(result);
     }
 }

@@ -25,6 +25,15 @@ public class TaskGroup {
     public TaskGroup() {
     }
 
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public Set<Task> getTasks() {
         return tasks;
     }
