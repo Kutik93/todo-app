@@ -14,6 +14,7 @@ public interface TaskRepository {
     Task save(Task entity);
     boolean existsById(Long id);
     boolean existsByGroupDoneIsFalseAndGroup_Id(Long groupId);
+    List<Task> findByDone(boolean state);
     Page<Task> findAll(Pageable page);
     void deleteById(Long id);
 }
