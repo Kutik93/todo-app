@@ -1,6 +1,7 @@
 package com.github.kutik93.model.projection;
 
 import com.github.kutik93.model.Task;
+import com.github.kutik93.model.TaskGroup;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +28,7 @@ public class GroupTaskWriteModel {
     }
 
 
-    public Task toTask() {
-        return new Task(description, deadline);
+    public Task toTask(TaskGroup result) {
+        return new Task(description, deadline, result);
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Service
 public class TaskGroupService {
     private TaskGroupRepository repository;
@@ -24,7 +25,6 @@ public class TaskGroupService {
         TaskGroup result = repository.save(source.toGroup());
         return new GroupReadModel(result);
     }
-
     public List<GroupReadModel> readAll() {
         return repository.findAll().stream()
                 .map(GroupReadModel::new)
