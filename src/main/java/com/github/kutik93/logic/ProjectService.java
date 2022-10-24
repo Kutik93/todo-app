@@ -2,8 +2,6 @@ package com.github.kutik93.logic;
 
 import com.github.kutik93.TaskConfigurationProperties;
 import com.github.kutik93.model.Project;
-import com.github.kutik93.model.Task;
-import com.github.kutik93.model.TaskGroup;
 import com.github.kutik93.model.projection.GroupReadModel;
 import com.github.kutik93.model.projection.GroupTaskWriteModel;
 import com.github.kutik93.model.projection.GroupWriteModel;

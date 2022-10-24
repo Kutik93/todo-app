@@ -1,6 +1,5 @@
 package com.github.kutik93.service;
 
-import com.github.kutik93.model.Task;
 import com.github.kutik93.model.TaskGroup;
 
 import java.util.List;
