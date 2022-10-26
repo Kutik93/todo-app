@@ -17,4 +17,5 @@ public interface TaskRepository {
     List<Task> findByDone(boolean state);
     Page<Task> findAll(Pageable page);
     void deleteById(Long id);
+    List<Task> findAllByGroup_Id(long id);
 }
