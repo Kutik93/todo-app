@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Component
@@ -16,7 +17,11 @@ public class LoggerFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
+        if (request instanceof HttpServletRequest) {
+            var httpRequest = (HttpServletRequest) request;
+            logger.info("[doFilter] " + httpRequest.getMethod() + " " + httpRequest.getRequestURI());
+        }
+        chain.doFilter(request, response);
     }
 
 
