@@ -1,6 +1,9 @@
 package com.github.kutik93.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
@@ -15,7 +18,8 @@ public class Project {
     private String description;
     @OneToMany(mappedBy = "project")
     private Set<TaskGroup> groups;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project", fetch = FetchType.EAGER)
     private Set<ProjectStep> steps;
 
     public Project() {
