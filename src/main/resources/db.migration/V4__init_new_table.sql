@@ -5,5 +5,5 @@ create table task_groups(
                             done        bit
 );
 
-alter table tasks add column task_group_id int null;
-alter table tasks add foreign key (task_group_id) references task_groups (id);
+alter table task add column task_group_id int null;
+alter table task add foreign key (task_group_id) references task_groups (id);

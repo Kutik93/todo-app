@@ -4,14 +4,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "project_steps")
+//@Table(name = "project_step")
 public class ProjectStep {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private long id;
     @NotBlank(message = "Project step description must not be empty.")
     private String description;
     private int daysToDeadline;
+
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;

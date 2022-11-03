@@ -9,6 +9,7 @@ import java.util.Set;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private long id;
     @NotBlank(message = "Project's description must not be empty.")
     private String description;

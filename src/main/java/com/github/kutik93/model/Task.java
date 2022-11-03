@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "task")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
