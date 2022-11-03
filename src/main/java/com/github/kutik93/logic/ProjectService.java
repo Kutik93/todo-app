@@ -5,6 +5,7 @@ import com.github.kutik93.model.Project;
 import com.github.kutik93.model.projection.GroupReadModel;
 import com.github.kutik93.model.projection.GroupTaskWriteModel;
 import com.github.kutik93.model.projection.GroupWriteModel;
+import com.github.kutik93.model.projection.ProjectWriteModel;
 import com.github.kutik93.service.ProjectRepository;
 import com.github.kutik93.service.TaskGroupRepository;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,8 @@ public class ProjectService {
         return repository.findAll();
     }
 
-    public Project save(Project toSave) {
-        return repository.save(toSave);
+    public Project save(ProjectWriteModel toSave) {
+        return repository.save(toSave.toProject());
     }
 
     public GroupReadModel createGroup(LocalDateTime deadline, long projectId) {
@@ -53,7 +54,7 @@ public class ProjectService {
                                             }
                                     ).collect(Collectors.toSet())
                     );
-                    return service.createGroup(targetGroup);
+                    return service.createGroup(targetGroup, project);
                 }).orElseThrow(() -> new IllegalArgumentException("Project with given id not found"));
     }
 }
